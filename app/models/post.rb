@@ -4,12 +4,12 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: 'post_id'
 
   # A method that updates the posts counter for a user.
-  # 
+  #
   # @param author_id [Integer] The id of the user.
   # @param increment [Boolean] Whether to increment or decrement the counter.
-  # 
+  #
   # @return [Integer] The new value of the counter.
-  # 
+  #
   def self.update_counter(author_id, increment)
     user = User.find(author_id)
     if increment
