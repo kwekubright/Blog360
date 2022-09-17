@@ -3,13 +3,10 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'post_id'
   has_many :likes, foreign_key: 'post_id'
 
-  # A method that updates the posts counter for a user.
-  #
-  # @param author_id [Integer] The id of the user.
-  # @param increment [Boolean] Whether to increment or decrement the counter.
-  #
-  # @return [Integer] The new value of the counter.
-  #
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def self.update_counter(author_id, increment)
     user = User.find(author_id)
     if increment
@@ -22,6 +19,6 @@ class Post < ApplicationRecord
   end
 
   def self.recent_five_comments(post_id)
-    comments.where(post_id: post_id).order(created_at: :desc).limit(5).all
+    Comment.where(post_id: post_id).order(created_at: :desc).limit(5).all
   end
 end
