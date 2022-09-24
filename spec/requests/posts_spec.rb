@@ -5,14 +5,14 @@ RSpec.describe 'Posts', type: :request do
     @user = User.create(name: 'Tom', photo: '', posts_counter: 0)
     @post = Post.create(
       author: @user,
-      title: 'Here we are!',
-      text: 'Here they go',
+      title: 'Post title',
+      text: 'Post text',
       comments_counter: 0,
       likes_counter: 0
     )
-    Comment.create(author: @user, post: @post, text: 'Hello bob')
-    Comment.create(author: @user, post: @post, text: 'Hello gram')
-    Comment.create(author: @user, post: @post, text: 'Hello sam')
+    Comment.create(author: @user, post: @post, text: 'This is great')
+    Comment.create(author: @user, post: @post, text: 'Testing')
+    Comment.create(author: @user, post: @post, text: 'I love this test')
   end
 
   describe 'GET /index' do
