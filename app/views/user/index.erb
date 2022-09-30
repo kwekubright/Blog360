@@ -1,1 +1,7 @@
-<h1>Here is a list of users</h1>
+<section class="user-index">
+  <% @allUsers.each do |user| %>
+  <a href='/user/<%= user.id %>'>
+    <%= render 'shared/user', user:user %>
+    <a>
+  <% end %>
+</section>

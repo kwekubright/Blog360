@@ -1,1 +1,22 @@
-<h1>Posts for all users</h1>
+<section >
+  <%= render'shared/user', user: @user %>
+    <% @posts.each do |post| %>
+  <a href="/user/<%= @user.id %>/posts/<%= post.id %>">
+    <div class="list-wrapper">
+    <ul class="post-list"><%= render 'shared/post', post: post %></ul>
+    <ul class="comments-list">
+      <% if post.comments_counter > 0 %>
+            <%= render 'shared/comment', comments: post.recent_five_comments %>
+      <% else %>
+        <li>No comments</li>
+      <% end %>
+      <ul>
+    </div>
+  <a>
+    <% end %>
+  <div class="btn">  <button type='button'>Pagination</button></div>
+
+</section>
+
+
+
