@@ -5,15 +5,15 @@
     <p><%= @user.bio %><p>
   </div>   
   <ul class="list">
-    <% if @user.posts.count < 0 %>
-    <% @user.recent_three_posts.each do |post| %>
-      <a href="/user/<%= @user.id %>/posts/<%= post.id %>" >
-        <%= render 'shared/post', post: post %>
-      </a>
+    <% if @user.posts.count > 0 %>
+      <% @recent_three_posts.each do |post| %>
+        <a href="/user/<%= @user.id %>/posts/<%= post.id %>" >
+          <%= render 'shared/post', post: post %>
+        </a>
+      <% end %>
+    <% else %>
+      <li>No Posts</li>
     <% end %>
-  <% else %>
-    <li>No Posts</li>
-  <% end %>
 </ul>
   <div class="btn">
 

@@ -156,3 +156,8 @@ button {
   font-size: 13px;
   font-weight: 700;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
