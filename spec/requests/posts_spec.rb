@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'body should includes correct placeholder text' do
-      expect(response.body).to include('Posts for all users')
+      expect(response.body).to include('Number of posts:')
     end
   end
 
@@ -44,10 +44,6 @@ RSpec.describe 'Posts', type: :request do
 
     it 'should render correct template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'body should includes correct placeholder text' do
-      expect(response.body).to include('Here is a list of posts for a given user')
     end
   end
 end

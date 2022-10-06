@@ -1,1 +1,28 @@
-<h1>Here is a list of posts for a given user</h1>
+<section >
+<div class="post-wrapper">
+<%# user picture %>
+<div class="user-picture">
+<%= image_tag @user.photo %>
+<%# total post %>
+<div class="total-post">
+<h4>Total posts: <%= @user.posts.count %></h4>
+</div>
+</div>
+<div>
+  <span> <%= @post.title %> By  <%= @post.author.name %> </span>
+  <span>
+    Comments: <%= @post.comments_counter %> , Likes: <%= @post.likes_counter %>
+  </span>
+</div>
+<p><%= @post.text %></p>
+<%= render'shared/new_like', post: @post %>
+</div>
+  <ul class="comments-list">
+      <% if @post.comments_counter > 0 %>
+          <%= render 'shared/comment', comments: @post.comments %>
+      <% else %>
+        <li>No comments</li>
+      <% end %> 
+       <%= render 'shared/new_comment', post: @post%>
+  </ul>   
+</section>
