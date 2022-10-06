@@ -1,5 +1,13 @@
 <section >
 <div class="post-wrapper">
+<%# user picture %>
+<div class="user-picture">
+<%= image_tag @user.photo %>
+<%# total post %>
+<div class="total-post">
+<h4>Total posts: <%= @user.posts.count %></h4>
+</div>
+</div>
 <div>
   <span> <%= @post.title %> By  <%= @post.author.name %> </span>
   <span>

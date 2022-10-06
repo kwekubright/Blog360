@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
 
   describe 'Methods' do
     it 'returns the recent five comments' do
-      expect(Post.recent_five_comments(1)).to eq([])
+      expect(subject.recent_five_comments).to eq([])
     end
   end
 end
