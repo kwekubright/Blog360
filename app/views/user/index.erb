@@ -1,4 +1,8 @@
 <section class="user-index">
+<%# Signout %>
+<div class="signout">
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+</div>
 <h1> All users </h1>
   <% @all_users.each do |user| %>
   <a href='/user/<%= user.id %>'>
